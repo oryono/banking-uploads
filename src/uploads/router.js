@@ -13,7 +13,7 @@ router.put("/save-avatar", (req, res, next) => {
     const {key} = req.body;
     generateGetUrl(key).then(url => {
         pool.query(`UPDATE customers SET profile_picture = '${url}' WHERE id = 1`)
-            .then(result => res.send("Success"))
+            .then(result => res.send("Successfully saved image."))
             .catch(err => console.log(err));
     });
 });
